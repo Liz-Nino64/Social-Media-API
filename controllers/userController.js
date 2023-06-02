@@ -17,7 +17,8 @@ module.exports = {
         User.findOneAndUpdate({_id: params.id}, {$set: body}, {runValidators: true, new: true})
             .then(data => res.json(data))
     },
-    deleteUser: ({body}, res) => {
+    deleteUser: ({body, params}, res) => {
         User.findOneAndDelete({_id: params.id})
+            .then(data => res.json(data))
     }
 };
